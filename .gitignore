@@ -1,0 +1,8 @@
+build/
+build-*/
+*.user
+*.qm
+.qtc_clangd/
+CMakeLists.txt.user*
+deploy/
+Output/

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($env:PATH = \"C:\\\\Qt\\\\6.11.0\\\\msvc2022_64\\\\bin;\" + $env:PATH; $env:NURSERA_DEV_USER = \"sami\"; $env:NURSERA_DEV_PIN = \"1234\"; $out = \"C:\\\\Users\\\\Azaie\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Azaie-Documents-NurseryMate\\\\9c45f0c4-22f5-442a-9bfe-5fb3eedf28bf\\\\scratchpad\\\\app-console.txt\"; $app = Start-Process \"C:\\\\Users\\\\Azaie\\\\Documents\\\\NurseryMate\\\\build\\\\desktop-msvc\\\\apps\\\\desktop\\\\Debug\\\\nursera-desktop.exe\" -PassThru -RedirectStandardError $out; Start-Sleep 7; if \\(-not $app.HasExited\\) { Stop-Process -Id $app.Id -Force }; Get-Content $out | Select-String -Pattern \"AdminPage|binding|loop|Layout\" | Select-Object -First 20)",
+      "Bash(head -30 \"/c/Users/Azaie/AppData/Local/Temp/claude/c--Users-Azaie-Documents-NurseryMate/9c45f0c4-22f5-442a-9bfe-5fb3eedf28bf/scratchpad/app-console.txt\")",
+      "Read(//c/Users/Azaie/AppData/Local/Temp/claude/c--Users-Azaie-Documents-NurseryMate/9c45f0c4-22f5-442a-9bfe-5fb3eedf28bf/scratchpad/**)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\Azaie\\\\Documents\\\\NurseryMate\"; $env:PATH = \"C:\\\\Qt\\\\Tools\\\\CMake_64\\\\bin;$env:PATH\"; cmake --build --preset desktop-debug --target nursera-desktop 2>&1 | Select-String -Pattern \"error\" | Select-Object -First 3; \"BUILD $LASTEXITCODE\")",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\Azaie\\\\Documents\\\\NurseryMate\"; $env:PATH = \"C:\\\\Qt\\\\6.11.0\\\\msvc2022_64\\\\bin;C:\\\\Qt\\\\Tools\\\\CMake_64\\\\bin;$env:PATH\"; cmake --build --preset desktop-debug 2>&1 | Select-String -Pattern \"error\" | Select-Object -First 5; ctest --test-dir build/desktop-msvc -C Debug --output-on-failure 2>&1 | Select-Object -Last 4)",
+      "Bash(cat \"/c/Users/Azaie/Documents/GestionScolaire_QML/qml_project/installer.iss\" 2>/dev/null | head -80; echo ===; cat \"/c/Users/Azaie/Documents/GestionScolaire_QML/qml_project/build_installer.ps1\" 2>/dev/null | head -100)",
+      "Read(//c/Users/Azaie/Documents/GestionScolaire_QML/qml_project/**)",
+      "PowerShell($paths = @\\(\"$env:LOCALAPPDATA\\\\Programs\\\\Inno Setup 6\\\\ISCC.exe\", \"C:\\\\Program Files \\(x86\\)\\\\Inno Setup 6\\\\ISCC.exe\", \"C:\\\\Program Files\\\\Inno Setup 6\\\\ISCC.exe\"\\); foreach \\($p in $paths\\) { if \\(Test-Path $p\\) { \"FOUND: $p\" } }; \\(Get-Command windeployqt -ErrorAction SilentlyContinue\\); Test-Path \"C:\\\\Qt\\\\6.11.0\\\\msvc2022_64\\\\bin\\\\windeployqt.exe\")",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\Azaie\\\\Documents\\\\NurseryMate\\\\build_installer.ps1\")"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "desktop-msvc",
+      "displayName": "Desktop MSVC 2022 (x64)",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/desktop-msvc",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "C:/Qt/6.11.0/msvc2022_64"
+      }
+    },
+    {
+      "name": "desktop-mingw",
+      "displayName": "Desktop MinGW (secours)",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "C:/Qt/6.11.0/mingw_64",
+        "CMAKE_C_COMPILER": "C:/Qt/Tools/mingw1310_64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/Qt/Tools/mingw1310_64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/Qt/Tools/Ninja/ninja.exe"
+      }
+    },
+    {
+      "name": "desktop-mingw-debug",
+      "inherits": "desktop-mingw",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    },
+    {
+      "name": "desktop-mingw-release",
+      "inherits": "desktop-mingw",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "android-release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "C:/Qt/6.11.0/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
+        "QT_HOST_PATH": "C:/Qt/6.11.0/mingw_64",
+        "CMAKE_MAKE_PROGRAM": "C:/Qt/Tools/Ninja/ninja.exe",
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "android-emu",
+      "displayName": "Android x86_64 (émulateur)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "C:/Qt/6.11.0/android_x86_64/lib/cmake/Qt6/qt.toolchain.cmake",
+        "QT_HOST_PATH": "C:/Qt/6.11.0/mingw_64",
+        "CMAKE_MAKE_PROGRAM": "C:/Qt/Tools/Ninja/ninja.exe",
+        "CMAKE_BUILD_TYPE": "Release",
+        "ANDROID_SDK_ROOT": "$env{LOCALAPPDATA}/Android/Sdk",
+        "ANDROID_NDK_ROOT": "$env{LOCALAPPDATA}/Android/Sdk/ndk/27.2.12479018"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "desktop-debug", "configurePreset": "desktop-msvc", "configuration": "Debug" },
+    { "name": "desktop-release", "configurePreset": "desktop-msvc", "configuration": "Release" },
+    { "name": "desktop-mingw-debug", "configurePreset": "desktop-mingw-debug" },
+    { "name": "desktop-mingw-release", "configurePreset": "desktop-mingw-release" }
+  ]
+}
